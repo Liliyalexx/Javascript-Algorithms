@@ -51,7 +51,7 @@ const swap = (arr, idx1, idx2) =>{
 
 // Bubble Sortion ES 2015 version
 
-      function bubleSort(arr){
+      function bubbleSort(arr){
         const swap = (arr, idx1, idx2)=> {
           [arr[idx1], arr[idx2]] = [arr[idx2], arr[idx1]];
         };
