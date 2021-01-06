@@ -19,9 +19,9 @@
 // "z".charCodeAt(0) - 96
 // 26
 
-// Basic Hush function
+// Basic Hash function
 function hash(key, arrayLen){
-  let total = o;
+  let total = 0;
   for (let char of key){
     // map "a" to 1, "b" to 2, "c" to 3, etc.
     let value = char.charCodeAt(0) - 96
@@ -38,7 +38,7 @@ function (key, arrayLen){
   for (let i = 0; i< Math.min(key.length, 100); i++){
     let char = key[i];
     let value = char.charCodeAt(0) - 96
-    total = (total * WIERD_PRIME + value)%arrayLen;
+    total = (total * WIERD_PRIME + value) % arrayLen;
   }
   return toral;
 }
@@ -88,8 +88,147 @@ function hash (key, arrayLen){
       this.keyMap[index].push([key, value]);
     }
     get (key) {
+    let index = this._hash(key);
+    if ( this.keyMap[index]){
+      for( let i =0; i < this.keyMap[index].length;i++){
+        if ( this.keyMap[index][i][0] == key) {
+          return this.keyMap[index][i][1]
+        }
+      }
+    }
+    return undefined;
+    }
+  
+  // let ht = new HashTable(17);
+  // ht.set("maroon", "#800000")
+  // ht.set("yellow", "#FFFF00")
+  // ht.set("olive", "#808000")
+  // ht.set("salmon", "#FA8072")
+  // ht.set("lightcoral", "#F08080")
 
+//Keys & Values
+
+values(){
+  let valuesArr = [];
+   for (let i = 0; i < this.keyMap.length; i++){
+    if (this.keyMap[i]){
+      for(let j = 0; j < this.keyMap.length; j++){
+        if(!valuesArr.includes(this.keyMap[i][j][1])){
+          valuesArr.push(this.keyMap[i][j][1])
+        }
+      }
     }
   }
-  let ht = new HashTable();
-  ht.set("hello world", "goodbye!!")
+   return valuesArr;
+  }
+  keys(){
+    let keysArr = [];
+     for (let i = 0; i < this.keyMap.length; i++){
+      if (this.keyMap[i]){
+        for(let j = 0; j < this.keyMap.length; j++){
+          if(!keysArr.includes(this.keyMap[i][j][0])){
+            keysArr.push(this.keyMap[i][j][0])
+          }
+        }
+      }
+    }
+     return keysArr;
+    }
+  }
+
+ht.keys().forEach(function(key){
+  console.log(ht.get(key));
+})
+
+// Big O of Has tables(average case)
+// Insert: O(1)
+// Deletion: O(1)
+// Access: O(1)
+
+// Design a HashSet without using any built-in hash table libraries.
+
+// To be specific, your design should include these functions:
+
+// add(value): Insert a value into the HashSet. 
+// contains(value) : Return whether the value exists in the HashSet or not.
+// remove(value): Remove a value in the HashSet. If the value does not exist in the HashSet, do nothing.
+
+// Example:
+
+// MyHashSet hashSet = new MyHashSet();
+// hashSet.add(1);         
+// hashSet.add(2);         
+// hashSet.contains(1);    // returns true
+// hashSet.contains(3);    // returns false (not found)
+// hashSet.add(2);          
+// hashSet.contains(2);    // returns true
+// hashSet.remove(2);          
+// hashSet.contains(2);    // returns false (already removed)
+
+// time O(n) space O(1) or O(n)
+class MyHashSet {
+  constructor() {
+      this.items = []
+      
+  }
+  
+  add(value) {
+      if(this.items.includes(value)) {
+          return
+      }
+      this.items.push(value)
+  }
+  
+  remove(value) {
+      const index = this.items.indexOf(value)
+      
+      if(index < 0) {
+          return
+      }
+      
+      const firstHalf = this.items.slice(0, index)
+      const secondHalf = this.items.slice(index+1)
+      
+      this.items = firstHalf.concat(secondHalf)
+  }
+  
+  contains(value) {
+      return this.items.includes(value)
+  }
+}
+
+// Hashmap, get, put, remove
+
+var MyHashMap = function () {
+  this.keyArr = [];
+};
+
+//  value will always be non-negative.
+ 
+put (key, value) {
+  this.keyArr[key] = value;
+};
+
+
+//  * Returns the value to which the specified key is mapped, or -1 if this map contains no mapping for the key
+ get (key) {
+  if (!this.keyArr[key] && this.keyArr[key] !== 0) {
+    return -1;
+  }
+  return this.keyArr[key];
+};
+
+
+//  * Removes the mapping of the specified value key if this map contains a mapping for the key
+ 
+MyHashMap.prototype.remove = function (key) {
+  this.keyArr[key] = -1;
+};
+
+/**
+ * Your MyHashMap object will be instantiated and called as such:
+ * var obj = new MyHashMap()
+ * obj.put(key,value)
+ * var param_2 = obj.get(key)
+ * obj.remove(key)
+ */
