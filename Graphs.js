@@ -12,7 +12,7 @@
 // -Everywhere
 // Vertex - a node, 
 // Edge - connection between nodes
-//  Grapphs: Adjacency list, Hashtable
+//  Graphs: Adjacency list, Hashtable
 
 class Graph {
   constructor() {
