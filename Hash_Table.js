@@ -40,7 +40,7 @@ function (key, arrayLen){
     let value = char.charCodeAt(0) - 96
     total = (total * WIERD_PRIME + value) % arrayLen;
   }
-  return toral;
+  return total;
 }
 
 // Hashing Revisited
