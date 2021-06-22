@@ -1,3 +1,6 @@
+// "Mr%20John%20Smith", 13
+// Output: "Mr%20John%20Smith"
+
 public class URLify {
   static void replaceSpace(char[] str, int trueLength) {
     int spaceCount = 0, index, i = 0;
