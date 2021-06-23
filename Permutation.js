@@ -68,3 +68,48 @@ public static void main(String[] args) {
   System.out.println(main.isPermutation("abab", "baba")); true 
 }
 
+
+
+
+// /////////////////////////////////////////////////////////Java/////////////////////////////////////
+// 1) Process the 1st str input and store the info about it in a hashmap
+//    1.1) The Hashmap will have key which will be the char and the value is how many time it ocurred in the string
+// 2)Process the snd str
+// 2.1) as we go through each char if the char is found in the hashmap we are going to decrement its ocurrence by 1
+// 2.2) if we do not find a char that appears in the hashmap then we are going to return  false for the  entire method
+// 2.3) if value is less than 1 then we return false
+
+Public classs CheckPermutation{
+  public bollean check( String str1, String str2){
+      if(str1.length()!=str2.length()) return false;
+Map<Character, Integer> map =new HashMAp<>(); // map used for storing str1's ocurrence in char 
+//process the first str1
+for(int 1=0; i<str1.length; i++){                                  //cat    
+  if(map.containsKey(str1.charAt(i))){
+      map.put(str1.charAt(i)), map.get(str1.charAt(i)+1);
+  }
+  else{
+      map.put(str1.charAt(i), 1) //, <act, atc>
+  }
+}
+for(int 1=0; i<str2.length; i++){
+  if(map.containsKey(str2.charAt(i))){
+      if(map.get(str2.chatAt(i))>0){
+      map.put(str2.charAt(i)), map.get(str2.charAt(i)+1);  <
+      }
+      else{
+          return false;
+      }
+  }
+  else{
+      return false;
+  }
+}
+return true;
+
+  }
+  public static void  main(String[] args){
+System.out.println(CheckPermutation.check("abc", "bca")); true 
+  }
+}
+
