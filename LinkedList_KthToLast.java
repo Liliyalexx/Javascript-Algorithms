@@ -21,12 +21,12 @@
 // curr
 // follow
 
-// list = 1 -> 2 -> 3 -> 4 -> 5 -> null (k=2)
-                      // ^    ^
-                      //curr  curr
-            // ^    ^
-            //follower(k)
-// Javascript
+// list = 1 -> 2 -> 3 -> 4 -> 5 -> null (k=3)
+      //                          (fast)^               
+      //
+      //         (slow=k)^
+      //    
+// Java
 private class Node {
   private int value;
   private Node next;
@@ -48,7 +48,7 @@ public Node kthToLast(Node node, int k){
 
 }
 // Java - Iterative
-LinkedListNode nthToLast(LinkedListNode head, int k){
+  LinkedListNode nthToLast(LinkedListNode head, int k){
   LinkedListNode p1=head;
   LinkedListNode p2= head;
   // Move p1k odes into the list
@@ -83,24 +83,7 @@ int printKthToLast(LinkedList Node head, int k){
   return index;
 }
 
-// C++ and to pass values by reference. 
-// This allows us to return the node value, but also update the couter by passing a pointer to it.
-node* nthToLast(node* head, int k, int& i){
-  if (head == NULL){
-    return NULL;
-  }
-  node* nd = nthToLast(head->next, k, i);
-  i = i + 1;
-  if (i== k){
-    return head;
-  }
-  return nd;
-}
 
-node* nthToLast(node* head, int k){
-  int i=0;
-  return nthToLast(head, k, i);
-}
 
 //  Create a Wrapper Class
 
