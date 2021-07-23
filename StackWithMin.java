@@ -41,7 +41,7 @@ public class StackWithMin2 extends Stack<Integer>{
    }
    return value;
  }
- public in min() {
+ public int min() {
    if (s2.isEmpty()){
      return Integer.MAX_VALUE;
    }else{

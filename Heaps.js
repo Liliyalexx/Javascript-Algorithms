@@ -188,3 +188,31 @@ ER.enqueue("glass in foot", 3)
 // -  parent nodes are always smaller than child nodes
 
 
+// left child 2n +1
+
+// right child 2n+2
+
+// parent is at index (n-1)/2
+
+Class Name:
+MaxBinaryHeap
+
+Properties:
+values = []
+
+// Adding to a Max Binary Heap
+-add to the end
+-bubble up bu swapping
+
+//Removing From a Heap
+-Remove the root 
+-Replace with the most recently added
+-Adjust (sink down)
+
+left 2*index+2
+right 2*index+2
+then swap with the largest
+
+
+
+
