@@ -9,7 +9,10 @@
 
 // TREES
 // Binary TREES(can have: 0, 1, 2, children)
-// Binary Search Trees - are non-linear data structure(with  2 children per node and they are compareble, every node to the left is less then parent and every node to the right is always greater then parent)
+// Binary Search Trees - are non-linear data structure
+// (with  2 children per node and they are compareble, 
+// every node to the left is less then parent and every 
+// node to the right is always greater then parent)
 
 class Node{
   constructor(value){

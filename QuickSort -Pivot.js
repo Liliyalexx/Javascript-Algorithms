@@ -17,8 +17,6 @@ console.log(arr)
 return swapIdx;
 }
 
-pivot ([4,8,2,1,5,7,6,3])
-
 // // Version with ES2015 Syntax
 // function pivot(arr, start = 0, end = arr.length - 1) {
 //   const swap = (arr, idx1, idx2) => {
@@ -70,7 +68,8 @@ quickSort([100,-3, 4,6,9,1,2,5,3])
 
 
 
-
+Time Complexity worst case: O(n)decompositions, 
+Space Complexity
 
 
 

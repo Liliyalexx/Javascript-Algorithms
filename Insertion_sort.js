@@ -7,11 +7,13 @@ function insertionSort(arr){
   arr[j+1] = currentVal;
  console.log(arr)
   }
- return arr
+ return arr;
  
 }
 
 insertionSort([2, 5, 4, 7, 3, 0])
+
+[1,2,9,76,20] 20 arr[j] then = currentVal
 
 Time Complexity: O(n2)
 Space Complexity O(1)
