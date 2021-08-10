@@ -87,18 +87,18 @@ unshift(val){
       if(index < 0 || index >= this.length) return null;
       var count, current;
       if (index <= this.length/2){
-        counter=0;
+        count=0;
         current = this.head;
-        while(counter !==index){
+        while(count !==index){
         current = current.next;
-        counter++;
+        count++;
       }
     } else {
-      counter = this.length -1;
+      count = this.length -1;
       current = this.tail;
-      while (counter !==index){
+      while (count !==index){
           current = current.prev;
-          counter--;
+          count--;
         }      
     }
     return current;
