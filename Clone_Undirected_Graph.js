@@ -84,7 +84,7 @@ class Solution {
 
 // Time: O (|V| + |E|)
 
-// Java Script Solution
+// JavaScript Solution
 
 function cloneGraph(node) {
   const map = new Map();
